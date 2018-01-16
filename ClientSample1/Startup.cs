@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using ClientSample1.Models;
 
 namespace ClientSample1
 {
@@ -22,6 +24,9 @@ namespace ClientSample1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<ClientSample1Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ClientSample1Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
