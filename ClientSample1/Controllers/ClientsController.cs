@@ -139,7 +139,10 @@ namespace ClientSample1.Controllers
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             var client = await _context.Client.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Client.Remove(client);
+
+            //On Delete - bool Cancelled is true
+            client.Cancelled = true;
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
