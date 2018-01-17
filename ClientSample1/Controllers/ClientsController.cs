@@ -140,8 +140,7 @@ namespace ClientSample1.Controllers
         {
             var client = await _context.Client.SingleOrDefaultAsync(m => m.ID == id);
 
-            //On Delete - bool Cancelled is true
-            client.Cancelled = true;
+            client.Delete();
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
