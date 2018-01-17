@@ -18,7 +18,7 @@ namespace ClientSample1.Models
         [Display(Name = "Contact Number")]
         public string ContactNumber { get; set; }
         [Display(Name = "Created")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd, hh.mm tt}", ApplyFormatInEditMode = true)]
         public DateTime DateTimeStamp { get; set; } = DateTime.Now;
         public bool Cancelled { get; set; }
 
